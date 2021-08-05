@@ -1,7 +1,6 @@
 <div class="dashboard-body-content">
     <h5>Edit service center</h5>
     <hr>
-    {{ serviceCenEditForm.value | json }}
     <form class="edit-service-center-form" #serviceCenEditForm="ngForm" (ngSubmit)="serviceCenFormSubmit(serviceCenEditForm)">
         <div class="row m-0 pt-3">
             <div class="col-lg-2">
