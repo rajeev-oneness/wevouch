@@ -182,7 +182,7 @@ export class ApiService {
   serviceCenUpdate(formData,serviceCenId) {
     return this._http.patch<any>(_apiUrl+'service-center/update/'+serviceCenId,formData);
   }
-  serviceCenterIdDelete(serviceCenId){
+  serviceCenterDelete(serviceCenId){
     return this._http.delete<any>(_apiUrl+'service-center/delete/'+serviceCenId);
   }
   serviceCenterToggleStatus(serviceCenId, status) {
@@ -244,6 +244,14 @@ export class ApiService {
   }
   supExeToggleStatus(supExeId, status) {
     return this._http.patch<any>(_apiUrl+'support-executive/toggle-user-status/'+supExeId, status);
+  }
+
+  //notification api
+  notificationList() {
+    return this._http.get<any>(_apiUrl+'notification/list');
+  }
+  notificationDelete(notificationId){
+    return this._http.delete<any>(_apiUrl+'notification/delete/'+notificationId);
   }
 
 }

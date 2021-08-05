@@ -1,144 +1,28 @@
 <div class="dashboard-body-content p-0">
-    <ul class="notification-list">
-        <li class="unread">
-            <div class="image-wrapper">
-                <img src="./assets/img/user1.png">
-            </div>
-            <div class="notification-details">
-                <div class="notification-heading">
-                    <h6 class="m-0">Notification 1</h6>
-                <p class="text-muted m-0">30.06.2021</p>
+    <!-- <tr > -->
+        <ul class="notification-list"*ngFor="let notification of notificationList; let i = index">
+            <li class="unread"  >
+                <div class="image-wrapper">
+                    <img src="./assets/img/user1.png">
                 </div>
-               <div class="notification-content">
-                <div class="notification-text">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae consequatur, quod,</p>
+                <div class="notification-details" >
+                    <div class="notification-heading">
+                        <h6 class="m-0">{{ notification.title }}</h6>
+                    <p class="text-muted m-0">{{ notification.createdDate | date:'dd.MM.yyyy' }}</p>
+                    </div>
+                   <div class="notification-content">
+                    <div class="notification-text">
+                        <p>{{ notification.description }}</p>
+                    </div>
+                    <div class="notification-button-container">
+                        <!-- <button data-toggle="modal" data-target="#sendModal" type="button"><i class="fa fa-paper-plane" aria-hidden="true"></i></button> -->
+                    <!-- <button><i class="fa fa-trash" aria-hidden="true"></i></button> -->
+                    <a href="javascript:void(0);" class="" data-toggle="modal" (click)="deleteNotification(notification._id)"data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
+                    </div>
+                   </div>
                 </div>
-                <div class="notification-button-container">
-                    <button data-toggle="modal" data-target="#sendModal" type="button"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                <button><i class="fa fa-trash" aria-hidden="true"></i></button>
-                </div>
-               </div>
-            </div>
-        </li>
-        <li class="unread">
-            <div class="image-wrapper">
-                <img src="./assets/img/user1.png">
-            </div>
-            <div class="notification-details">
-                <div class="notification-heading">
-                    <h6 class="m-0">Notification 1</h6>
-                <p class="text-muted m-0">30.06.2021</p>
-                </div>
-               <div class="notification-content">
-                <div class="notification-text">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae consequatur, quod,</p>
-                </div>
-                <div class="notification-button-container">
-                    <button data-toggle="modal" data-target="#sendModal" type="button"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                <button><i class="fa fa-trash" aria-hidden="true"></i></button>
-                </div>
-               </div>
-            </div>
-        </li>
-        <li class="read">
-            <div class="image-wrapper">
-                <img src="./assets/img/user1.png">
-            </div>
-            <div class="notification-details">
-                <div class="notification-heading">
-                    <h6 class="m-0">Notification 1</h6>
-                <p class="text-muted m-0">30.06.2021</p>
-                </div>
-               <div class="notification-content">
-                <div class="notification-text">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae consequatur, quod,</p>
-                </div>
-                <div class="notification-button-container">
-                    <button data-toggle="modal" data-target="#sendModal" type="button"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                <button><i class="fa fa-trash" aria-hidden="true"></i></button>
-                </div>
-               </div>
-            </div>
-        </li>
-        <li class="read">
-            <div class="image-wrapper">
-                <img src="./assets/img/user1.png">
-            </div>
-            <div class="notification-details">
-                <div class="notification-heading">
-                    <h6 class="m-0">Notification 1</h6>
-                <p class="text-muted m-0">30.06.2021</p>
-                </div>
-               <div class="notification-content">
-                <div class="notification-text">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae consequatur, quod,</p>
-                </div>
-                <div class="notification-button-container">
-                    <button data-toggle="modal" data-target="#sendModal" type="button"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                <button><i class="fa fa-trash" aria-hidden="true"></i></button>
-                </div>
-               </div>
-            </div>
-        </li>
-        <li class="read">
-            <div class="image-wrapper">
-                <img src="./assets/img/user1.png">
-            </div>
-            <div class="notification-details">
-                <div class="notification-heading">
-                    <h6 class="m-0">Notification 1</h6>
-                <p class="text-muted m-0">30.06.2021</p>
-                </div>
-               <div class="notification-content">
-                <div class="notification-text">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae consequatur, quod,</p>
-                </div>
-                <div class="notification-button-container">
-                    <button data-toggle="modal" data-target="#sendModal" type="button"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                <button><i class="fa fa-trash" aria-hidden="true"></i></button>
-                </div>
-               </div>
-            </div>
-        </li>
-        <li class="read">
-            <div class="image-wrapper">
-                <img src="./assets/img/user1.png">
-            </div>
-            <div class="notification-details">
-                <div class="notification-heading">
-                    <h6 class="m-0">Notification 1</h6>
-                <p class="text-muted m-0">30.06.2021</p>
-                </div>
-               <div class="notification-content">
-                <div class="notification-text">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae consequatur, quod,</p>
-                </div>
-                <div class="notification-button-container">
-                    <button data-toggle="modal" data-target="#sendModal" type="button"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                <button><i class="fa fa-trash" aria-hidden="true"></i></button>
-                </div>
-               </div>
-            </div>
-        </li>
-        <li class="read">
-            <div class="image-wrapper">
-                <img src="./assets/img/user1.png">
-            </div>
-            <div class="notification-details">
-                <div class="notification-heading">
-                    <h6 class="m-0">Notification 1</h6>
-                <p class="text-muted m-0">30.06.2021</p>
-                </div>
-               <div class="notification-content">
-                <div class="notification-text">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae consequatur, quod,</p>
-                </div>
-                <div class="notification-button-container">
-                    <button data-toggle="modal" data-target="#sendModal" type="button"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                <button><i class="fa fa-trash" aria-hidden="true"></i></button>
-                </div>
-               </div>
-            </div>
-        </li>
-    </ul>
+            </li>
+        </ul>
+    <!-- </tr> -->
+    
 </div>

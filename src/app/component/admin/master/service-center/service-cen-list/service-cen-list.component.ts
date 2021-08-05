@@ -32,7 +32,7 @@ export class ServiceCenListComponent implements OnInit {
   deleteServiceCenter(ServiceCenterId) {
     if (confirm('Are you sure?')) {
       this._loader.startLoader('loader');
-      this._api.serviceCenterIdDelete(ServiceCenterId).subscribe(
+      this._api.serviceCenterDelete(ServiceCenterId).subscribe(
           res => {
             this.getServiceCenList();
             this._loader.stopLoader('loader');
