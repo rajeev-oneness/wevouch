@@ -57,7 +57,6 @@ export class TicketDetailComponent implements OnInit {
       this._api.assignTicketTo(mainForm).subscribe(
         res => {
           console.log(res);
-          this.errorMessage = res.message;
           this._loader.stopLoader('loader');
           this.getTicketDetails(this.ticketId);
         },
@@ -84,7 +83,6 @@ export class TicketDetailComponent implements OnInit {
         this._api.updateTicketStatus(this.ticketId, mainForm).subscribe(
           res => {
             console.log(res);
-            this.errorMessage = res.message;
             this._loader.stopLoader('loader');
             this.getTicketDetails(this.ticketId);
           },
