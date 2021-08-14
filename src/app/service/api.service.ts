@@ -92,6 +92,12 @@ export class ApiService {
   ticketDelete(ticketId){
     return this._http.delete<any>(_apiUrl+'ticket/delete/'+ticketId);
   }
+  assignTicketTo(formData) {
+    return this._http.post<any>(_apiUrl+'ticket/assign-executive', formData);
+  }
+  updateTicketStatus(ticketId, formData) {
+    return this._http.patch<any>(_apiUrl+'ticket/update-status/'+ticketId, formData);
+  }
 
   //product api
   productList() {

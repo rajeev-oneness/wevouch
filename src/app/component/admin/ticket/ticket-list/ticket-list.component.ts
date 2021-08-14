@@ -9,11 +9,8 @@ import { NgxUiLoaderService } from "ngx-ui-loader";
 })
 export class TicketListComponent implements OnInit {
   public tickets :any = [];
-  // public tickets : {data : TICKET[]};
   constructor(private _api:ApiService, private _loader:NgxUiLoaderService) { 
     this._loader.startLoader('loader');
-    
-    // this.tickets = {data : []};
   }
 
   ngOnInit(): void {
@@ -45,7 +42,3 @@ export class TicketListComponent implements OnInit {
   }
 }
 
-// interface TICKET{
-//   // _id: number,
-//   name : string,
-// }
