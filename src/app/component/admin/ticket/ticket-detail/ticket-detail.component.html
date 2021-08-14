@@ -15,7 +15,7 @@
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="Product">Product</label>
-                <input type="text" id="Product" value="{{ticketDetail.products?.name}}" readonly>    
+                <input type="text" id="Product" value="{{(ticketDetail.products && ticketDetail.products.name) || 'N/A'}}" readonly>    
             </div>
         </div>
         <div class="col-lg-3">
