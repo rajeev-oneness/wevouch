@@ -26,6 +26,9 @@ export class CustomerListComponent implements OnInit {
         this.customerList = res;
         console.log(this.customerList);
         this._loader.stopLoader('loader');
+        $(document).ready(function() {
+          setTimeout(function(){ $('.table').DataTable(); }, 1500);
+        });
       },err => {}
     )
   }

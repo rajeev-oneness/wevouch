@@ -23,9 +23,11 @@ export class ProductListComponent implements OnInit {
   getProductList() {
     this._api.productList().subscribe(
       res => {
-        console.log(res);
         this.productList = res;
         this._loader.stopLoader('loader');
+        $(document).ready(function() {
+          setTimeout(function(){ $('.table').DataTable(); }, 1500);
+        });
       }
     )
   }

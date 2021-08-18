@@ -4,7 +4,7 @@
         <div class="card border-0 shadow-sm col-12 p-0">
             <div class="card-header card-head ">
                 <h5 class="card-head-title">Ticket Report</h5>
-                <div>
+                <!-- <div>
                     <div class="input-group ">
                         <div class="pr-3 d-flex">
                             <select class="form-control w-25 mr-1">
@@ -27,7 +27,7 @@
                                 id="button-addon2"><i class="fas fa-search"></i></button>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="table-responsive ticket-table">
                 <table class="table table-sm table-hover brand-table">
@@ -47,9 +47,9 @@
                     <tbody>
                         <tr *ngFor="let ticket of tickets; let i = index">
                             <td>{{i+1}}</td>
-                            <td>{{ticket.uniqueId}}</td>
-                            <td>{{ticket.users.name}}</td>
-                            <td><img src="{{ticket.products.productImagesUrl}}"></td>
+                            <td>{{ticket?.uniqueId}}</td>
+                            <td>{{ticket?.users?.name}}</td>
+                            <td><img src="{{ticket?.products?.productImagesUrl}}"></td>
                             <td>
                                 <span *ngIf="ticket.brand; else brandNotFound">{{ticket.brand.name}}</span>
                                 <ng-template #brandNotFound>N/A</ng-template>

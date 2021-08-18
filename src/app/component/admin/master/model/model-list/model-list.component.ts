@@ -22,9 +22,12 @@ export class ModelListComponent implements OnInit {
     this._loader.startLoader('loader');
     this._api.modelList().subscribe(
       res => {
-        console.log(res);
+        // console.log(res);
         this.modelList = res;
         this._loader.stopLoader('loader');
+        $(document).ready(function() {
+          setTimeout(function(){ $('.table').DataTable(); }, 1500);
+        });
       },err => {} 
     )
   }

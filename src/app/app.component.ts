@@ -17,9 +17,11 @@ export class AppComponent {
         if (event['url'] == '/login' || event['url'] == '/registration') {
           this.showHeaderFooterSidebar = false;
           this.loginRegistration = true;
+          return true;
         } else {
           this.showHeaderFooterSidebar = true;
           this.loginRegistration = false;
+          return true;
         }
       }
     });

@@ -21,9 +21,12 @@ export class SubCatListComponent implements OnInit {
     this._loader.startLoader('loader');
     this._api.subCategoryist().subscribe(
       res => {
-        console.log(res);
+        // console.log(res);
         this.subCategoryList = res;
         this._loader.stopLoader('loader');
+        $(document).ready(function() {
+          setTimeout(function(){ $('.table').DataTable(); }, 1500);
+        });
       },err => {} 
     )
   }

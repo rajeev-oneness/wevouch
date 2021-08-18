@@ -23,9 +23,12 @@ export class PackageListComponent implements OnInit {
     this._loader.startLoader('loader');
     this._api.packageList().subscribe(
       res => {
-        console.log(res);
+        // console.log(res);
         this.packages.data = res;
         this._loader.stopLoader('loader');
+        $(document).ready(function() {
+          setTimeout(function(){ $('.table').DataTable(); }, 1500);
+        });
       },err => {} 
     )
   }

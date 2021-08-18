@@ -53,6 +53,7 @@ import { ModelEditComponent } from './component/admin/master/model/model-edit/mo
 import { ServiceCenListComponent } from './component/admin/master/service-center/service-cen-list/service-cen-list.component';
 import { ServiceCenAddComponent } from './component/admin/master/service-center/service-cen-add/service-cen-add.component';
 import { ServiceCenEditComponent } from './component/admin/master/service-center/service-cen-edit/service-cen-edit.component';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -63,7 +64,7 @@ import { ServiceCenEditComponent } from './component/admin/master/service-center
     BrowserModule,AppRoutingModule,
     NgxUiLoaderModule,CommonModule,
     FormsModule,ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

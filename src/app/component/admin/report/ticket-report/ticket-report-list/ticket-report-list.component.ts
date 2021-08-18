@@ -21,9 +21,12 @@ export class TicketReportListComponent implements OnInit {
     this._loader.startLoader('loader');
     this._api.ticketList().subscribe(
       res => {
-        console.log(res);
+        // console.log(res);
         this.tickets = res;
         this._loader.stopLoader('loader');
+        $(document).ready(function() {
+          setTimeout(function(){ $('.table').DataTable(); }, 1500);
+        });
       },err => {} 
     )
   }

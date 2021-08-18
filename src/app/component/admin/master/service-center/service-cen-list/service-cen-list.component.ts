@@ -22,9 +22,12 @@ export class ServiceCenListComponent implements OnInit {
     this._loader.startLoader('loader');
     this._api.serviceCenList().subscribe(
       res => {
-        console.log(res);
+        // console.log(res);
         this.serviceCens = res;
         this._loader.stopLoader('loader');
+        $(document).ready(function() {
+          setTimeout(function(){ $('.table').DataTable(); }, 1500);
+        });
       },err => {} 
     )
   }

@@ -23,8 +23,10 @@ export class CustomerReportListComponent implements OnInit {
     this._api.customerList().subscribe(
         res => {
           this.customerList = res;
-          console.log(this.customerList);
           this._loader.stopLoader('loader');
+          $(document).ready(function() {
+            setTimeout(function(){ $('.table').DataTable(); }, 1500);
+          });
         },err => {}
     )
   }
