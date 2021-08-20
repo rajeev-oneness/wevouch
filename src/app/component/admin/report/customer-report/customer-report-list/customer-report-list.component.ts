@@ -25,7 +25,13 @@ export class CustomerReportListComponent implements OnInit {
           this.customerList = res;
           this._loader.stopLoader('loader');
           $(document).ready(function() {
-            setTimeout(function(){ $('.table').DataTable(); }, 1500);
+            setTimeout(function(){
+              let table = $('.table').DataTable( {
+                lengthChange: false,
+                // buttons: [ 'copy', 'excel', 'pdf']
+              });
+              // table.buttons().container().appendTo( '.table_wrapper .col-md-6:eq(0)' );
+            }, 1500);
           });
         },err => {}
     )

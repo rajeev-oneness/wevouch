@@ -251,13 +251,21 @@ export class ApiService {
   supExeToggleStatus(supExeId, status) {
     return this._http.patch<any>(_apiUrl+'support-executive/toggle-user-status/'+supExeId, status);
   }
-
+  
   //notification api
   notificationList() {
     return this._http.get<any>(_apiUrl+'notification/list');
   }
   notificationDelete(notificationId){
     return this._http.delete<any>(_apiUrl+'notification/delete/'+notificationId);
+  }
+
+  fetchSettingApi(){
+    return this._http.get<any>(_apiUrl + 'setting/list');
+  }
+
+  submitSettingData(settingId,formData){
+    return this._http.patch<any>(_apiUrl + 'settings/update/'+settingId,formData);
   }
 
 }

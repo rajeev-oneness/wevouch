@@ -14,11 +14,52 @@ export class SettingComponent implements OnInit {
 
   public errorMessage = '';
   ngOnInit(): void {
+    this.fetData();
+  }
 
+  public data = {
+    companyName : '',
+    companyAddress : '',
+    emailId : '',
+    mobileNo : '',
+    whatsappNo : '',
+    _id : '',
+    compnyAddress : '',
   }
 
   settingSubmit(formData){
-    
+    this.errorMessage = '';
+    for( let i in formData.controls ){
+      formData.controls[i].markAsTouched();
+    }
+    if( formData?.valid ){
+      const mainForm = formData.form.value;
+      this._loader.startLoader('loader');
+      this._api.submitSettingData(this.data._id,mainForm).subscribe(
+        res => {
+          this._loader.stopLoader('loader');
+          // this._router.navigate(['/admin/customer/list']);
+        },
+        err => {
+          this.errorMessage = err.message;
+          this._loader.stopLoader('loader');
+        }
+        
+      )
+    }else{
+      this.errorMessage = 'Please fill out all the details';
+    }
+  }
+
+  fetData(){
+    this._api.fetchSettingApi().subscribe(
+      res => {
+        this.data = res[0];
+        console.log(res);
+      },err => {
+
+      }
+    )
   }
 
 }
