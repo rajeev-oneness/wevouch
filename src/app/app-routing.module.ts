@@ -45,6 +45,8 @@ import { ForgetComponent } from "./component/auth/password/forget/forget.compone
 import { ChangeComponent } from "./component/auth/password/change/change.component";
 import { AuthGuardService } from "./service/auth-guard.service";
 import { SettingComponent } from './component/admin/setting/setting.component';
+import { TransactionLogComponent } from './component/admin/report/transaction-log/transaction-log.component';
+import { SubscriptionListComponent } from './component/admin/report/subscription-list/subscription-list.component';
 
 const routes: Routes = [
   {path : '', component : DashboardComponent, pathMatch:'full', canActivate:[AuthGuardService],},
@@ -126,7 +128,9 @@ const routes: Routes = [
     ]},
     {path : 'setting',children : [
       {path : '' , component : SettingComponent},
-    ]}
+    ]},
+    {path : 'transaction/logs', component: TransactionLogComponent},
+    {path : 'subscription/list', component : SubscriptionListComponent},
   ]},
   {path : '**', component : DashboardComponent, pathMatch:'full', canActivate:[AuthGuardService],},
 ];

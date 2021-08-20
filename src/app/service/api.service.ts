@@ -268,4 +268,8 @@ export class ApiService {
     return this._http.patch<any>(_apiUrl + 'settings/update/'+settingId,formData);
   }
 
+  getAllTransactionLog(){
+    return this._http.get<any>(_apiUrl + 'transaction/get-all-transaction');
+  }
+
 }

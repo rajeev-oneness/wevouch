@@ -1,1 +1,32 @@
-<p>subscription-list works!</p>
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
+<div class="dashboard-body-content-upper p-0">
+    <div class="row m-0 mt-3 col-12">
+        <div class="card border-0 shadow-sm col-12 p-0">
+            <div class="card-header card-head ">
+                <h5 class="card-head-title">Subscription List</h5>
+            </div>
+            <div class="table-responsive ticket-table card-body pt-0 pb-0">
+                <table class="table table-sm table-hover brand-table">
+                    <thead>
+                        <tr>
+                            <th>Customer Name</th>
+                            <th>Mobile</th>
+                            <th>Package Name</th>
+                            <th>Price</th>
+                            <th>Subscription Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of subscriptionList">
+                            <td>{{data?.user?.name}}</td>
+                            <td>{{data?.user?.mobile}}</td>
+                            <td>{{data?.subscription?.name}}</td>
+                            <td>{{data?.subscription?.amount}}</td>
+                            <td>{{data?.createdAt}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from "src/app/service/api.service";
 import { NgxUiLoaderService } from "ngx-ui-loader";
+
 @Component({
   selector: 'app-ticket-report-list',
   templateUrl: './ticket-report-list.component.html',
@@ -27,7 +28,9 @@ export class TicketReportListComponent implements OnInit {
         $(document).ready(function() {
           setTimeout(function(){ $('.table').DataTable(); }, 1500);
         });
-      },err => {} 
+      },err => {
+        this._loader.stopLoader('loader');
+      } 
     )
   }
 }

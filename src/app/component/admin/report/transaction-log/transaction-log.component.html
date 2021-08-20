@@ -1,1 +1,30 @@
-<p>transaction-log works!</p>
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
+<div class="dashboard-body-content-upper p-0">
+    <div class="row m-0 mt-3 col-12">
+        <div class="card border-0 shadow-sm col-12 p-0">
+            <div class="card-header card-head ">
+                <h5 class="card-head-title">Transaction Log</h5>
+            </div>
+            <div class="table-responsive ticket-table card-body pt-0 pb-0">
+                <table class="table table-sm table-hover brand-table">
+                    <thead>
+                        <tr>
+                            <th>Sl No</th>
+                            <th>Transaction Id</th>
+                            <th>Amount</th>
+                            <th>Transaction Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of transactionLog">
+                            <td>{{data?._id}}</td>
+                            <td>{{data?.transactionId}}</td>
+                            <td>{{data?.subscription?.amount}}</td>
+                            <td>{{data?.createdAt}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
