@@ -54,11 +54,12 @@ import { ServiceCenListComponent } from './component/admin/master/service-center
 import { ServiceCenAddComponent } from './component/admin/master/service-center/service-cen-add/service-cen-add.component';
 import { ServiceCenEditComponent } from './component/admin/master/service-center/service-cen-edit/service-cen-edit.component';
 import { DataTablesModule } from 'angular-datatables';
+import { SettingComponent } from './component/admin/setting/setting.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,HeaderComponent,FooterComponent,SidebarComponent,DashboardComponent,CustomerListComponent,CustomerAddComponent,TicketListComponent,CustomerDetailComponent,TicketDetailComponent,ProductListComponent,ProductDetailComponent,CustomerReportListComponent,CustomerReportDeatilComponent,TicketReportListComponent,TicketReportDetailComponent,ProductReportListComponent,ProductReportDetailComponent,CategoryListComponent,CategoryAddComponent,BrandListComponent,BrandAddComponent,PackageListComponent,PackageAddComponent,SupportListComponent,SupportAddComponent,SendNotificationComponent,SendEmailComponent,SendSmsComponent,CustomerEditComponent,CategoryEditComponent,BrandEditComponent,PackageEditComponent,LoginComponent,RegistrationComponent,ForgetComponent,ChangeComponent, SupportEditComponent, SubCatListComponent, SubCatAddComponent, SubCatEditComponent, ModelListComponent, ModelAddComponent, ModelEditComponent, ServiceCenListComponent, ServiceCenAddComponent, ServiceCenEditComponent,
+    AppComponent,HeaderComponent,FooterComponent,SidebarComponent,DashboardComponent,CustomerListComponent,CustomerAddComponent,TicketListComponent,CustomerDetailComponent,TicketDetailComponent,ProductListComponent,ProductDetailComponent,CustomerReportListComponent,CustomerReportDeatilComponent,TicketReportListComponent,TicketReportDetailComponent,ProductReportListComponent,ProductReportDetailComponent,CategoryListComponent,CategoryAddComponent,BrandListComponent,BrandAddComponent,PackageListComponent,PackageAddComponent,SupportListComponent,SupportAddComponent,SendNotificationComponent,SendEmailComponent,SendSmsComponent,CustomerEditComponent,CategoryEditComponent,BrandEditComponent,PackageEditComponent,LoginComponent,RegistrationComponent,ForgetComponent,ChangeComponent, SupportEditComponent, SubCatListComponent, SubCatAddComponent, SubCatEditComponent, ModelListComponent, ModelAddComponent, ModelEditComponent, ServiceCenListComponent, ServiceCenAddComponent, ServiceCenEditComponent, SettingComponent,
   ],
   imports: [
     BrowserModule,AppRoutingModule,

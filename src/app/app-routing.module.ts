@@ -44,6 +44,7 @@ import { RegistrationComponent } from "./component/auth/registration/registratio
 import { ForgetComponent } from "./component/auth/password/forget/forget.component";
 import { ChangeComponent } from "./component/auth/password/change/change.component";
 import { AuthGuardService } from "./service/auth-guard.service";
+import { SettingComponent } from './component/admin/setting/setting.component';
 
 const routes: Routes = [
   {path : '', component : DashboardComponent, pathMatch:'full', canActivate:[AuthGuardService],},
@@ -122,6 +123,9 @@ const routes: Routes = [
       {path: 'send-notification', component: SendNotificationComponent},
       {path: 'send-email', component: SendEmailComponent},
       {path: 'send-sms', component: SendSmsComponent},
+    ]},
+    {path : 'setting',children : [
+      {path : '' , component : SettingComponent},
     ]}
   ]},
   {path : '**', component : DashboardComponent, pathMatch:'full', canActivate:[AuthGuardService],},
