@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/service/api.service';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-setting',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _api:ApiService,private _loader:NgxUiLoaderService,private _router:Router) { }
 
+  public errorMessage = '';
   ngOnInit(): void {
+
+  }
+
+  settingSubmit(formData){
+    
   }
 
 }
