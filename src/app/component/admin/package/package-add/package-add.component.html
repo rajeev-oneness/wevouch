@@ -2,6 +2,7 @@
     <h5>Add Package</h5>
     <hr>
     <form class="edit-brand-form" #packageAddForm="ngForm" (ngSubmit)="packageFormSubmit(packageAddForm)">
+        {{packageAddForm.value | json}}
         <div class="row m-0 pt-3">
             <div class="col-lg-12">
                 <div class="row">
@@ -22,6 +23,7 @@
                     <div class="col-lg-6">
                         <div class="form-group edit-box">
                             <label for="package">Description</label>
+                            <!-- <ckeditor [editor]="Editor" name="Description" id="Description" #description="ngModel" ngModel required [ngClass]="{'is-invalid':description?.invalid && description?.touched}" data=""></ckeditor> -->
                             <textarea type="text" name="Description" rows="8" class="form-control" id="Description" placeholder="Enter Description" name="description" #description="ngModel" ngModel required [ngClass]="{'is-invalid':description?.invalid && description?.touched}"></textarea>
                         </div>
                     </div>

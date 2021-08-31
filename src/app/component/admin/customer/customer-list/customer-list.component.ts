@@ -19,15 +19,22 @@ export class CustomerListComponent implements OnInit {
   ngOnInit(): void {
     this.getCustomerList();
   }
+  public tableDesign : any;
   getCustomerList() {
     this._loader.startLoader('loader');
     this._api.customerList().subscribe(
       res => {
         this.customerList = res;
-        console.log(this.customerList);
         this._loader.stopLoader('loader');
         $(document).ready(function() {
-          setTimeout(function(){ $('.table').DataTable(); }, 1500);
+          setTimeout(function(){
+            console.log('table Design',this.tableDesign);
+            if(this.tableDesign != undefined || this.tableDesign != null){
+              this.tableDesign = this.tableDesign.draw();
+            }else{
+              this.tableDesign = $('.table').DataTable();
+            }
+          }, 1500);
         });
       },err => {}
     )

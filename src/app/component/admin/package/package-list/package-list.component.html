@@ -30,7 +30,7 @@
     <tbody>
         <tr *ngFor="let package of packages.data">
             <td>{{package.name}}</td>
-            <td>{{package.description}}</td>
+            <td innerHTML="{{package.description}}"></td>
             <td>&#8377; {{package.amount}}</td>
             <td>
                 N/A

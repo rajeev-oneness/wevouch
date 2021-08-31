@@ -58,7 +58,7 @@ import { SettingComponent } from './component/admin/setting/setting.component';
 import { NotForUseComponent } from './component/admin/report/not-for-use/not-for-use.component';
 import { TransactionLogComponent } from './component/admin/report/transaction-log/transaction-log.component';
 import { SubscriptionListComponent } from './component/admin/report/subscription-list/subscription-list.component';
-
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [
@@ -68,7 +68,8 @@ import { SubscriptionListComponent } from './component/admin/report/subscription
     BrowserModule,AppRoutingModule,
     NgxUiLoaderModule,CommonModule,
     FormsModule,ReactiveFormsModule,
-    HttpClientModule,DataTablesModule
+    HttpClientModule,DataTablesModule,
+    CKEditorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
