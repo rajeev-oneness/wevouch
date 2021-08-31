@@ -28,7 +28,6 @@ export class CustomerListComponent implements OnInit {
         this._loader.stopLoader('loader');
         $(document).ready(function() {
           setTimeout(function(){
-            console.log('table Design',this.tableDesign);
             if(this.tableDesign != undefined || this.tableDesign != null){
               this.tableDesign = this.tableDesign.draw();
             }else{
