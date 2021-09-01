@@ -21,14 +21,14 @@
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="category">Category</label>
-                <input type="text" id="mobile" value="{{ticketDetail.category?.name}}" readonly>    
+                <input type="text" id="mobile" value="{{ticketDetail.category}}" readonly>    
             </div>
         </div>
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="Brand">Brand</label>
                 <!-- <span *ngIf="ticketDetail.brand; else brandNotFound"> -->
-                    <input type="text" id="Brand" value="{{ticketDetail?.brand ? ticketDetail.brand?.name : 'N/A'}}" readonly>    
+                    <input type="text" id="Brand" value="{{ticketDetail?.brand ? ticketDetail.brand : 'N/A'}}" readonly>    
                 <!-- </span>
                 <ng-template #brandNotFound>
                     <input type="text" id="Brand" value="N/A" readonly>
