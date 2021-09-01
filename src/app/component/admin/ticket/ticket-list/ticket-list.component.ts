@@ -23,6 +23,7 @@ export class TicketListComponent implements OnInit {
     this._api.ticketList().subscribe(
       res => {
         this.tickets = res;
+        console.log(this.tickets);
         this._loader.stopLoader('loader');
         $(document).ready(function() {
           setTimeout(function(){ $('.table').DataTable(); }, 1500);
