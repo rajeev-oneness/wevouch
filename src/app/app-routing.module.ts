@@ -47,6 +47,7 @@ import { AuthGuardService } from "./service/auth-guard.service";
 import { SettingComponent } from './component/admin/setting/setting.component';
 import { TransactionLogComponent } from './component/admin/report/transaction-log/transaction-log.component';
 import { SubscriptionListComponent } from './component/admin/report/subscription-list/subscription-list.component';
+import { ProfileComponent } from "./component/admin/profile/profile.component";
 
 const routes: Routes = [
   {path : '', component : DashboardComponent, pathMatch:'full', canActivate:[AuthGuardService],},
@@ -58,6 +59,7 @@ const routes: Routes = [
   ]},
   {path: 'admin', canActivate:[AuthGuardService],children: [
     {path : 'dashboard', component : DashboardComponent},
+    {path : 'profile', component : ProfileComponent},
     {path : 'customer', children: [
       {path: 'list', component: CustomerListComponent},
       {path: 'add', component: CustomerAddComponent},

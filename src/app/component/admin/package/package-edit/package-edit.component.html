@@ -22,8 +22,13 @@
                     <div class="col-lg-6">
                         <div class="form-group edit-box">
                             <label for="package">Description</label>
-                            <!-- <ckeditor [editor]="Editor" name="Description" id="Description" #description="ngModel" ngModel required [ngClass]="{'is-invalid':description?.invalid && description?.touched}" data="{{packageDetail.description}}"></ckeditor> -->
                             <textarea type="text" name="Description" rows="8" class="form-control" id="Description" placeholder="Enter Description" name="description" #description="ngModel" [(ngModel)]="packageDetail.description" required [ngClass]="{'is-invalid':description?.invalid && description?.touched}"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group edit-box">
+                            <label for="name">Ticket Count</label>
+                            <input class="form-control" #ticketCount="ngModel" [(ngModel)]="packageDetail.ticketCount" type="number" name="ticketCount" id="ticketCount" placeholder="Enter Package ticket count" required [ngClass]="{'is-invalid':ticketCount?.invalid && ticketCount?.touched}">
                         </div>
                     </div>
                     <div class="col-lg-6">

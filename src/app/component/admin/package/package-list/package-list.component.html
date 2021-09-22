@@ -22,7 +22,7 @@
             <th>Package Name</th>
             <th style="width: 450px;">Description</th>
             <th>Price</th>
-            <th> Offered Price</th>
+            <th>Tickets</th>
             <th style="width:100px" class="text-center">Status</th>
             <th style="width:80px" class="text-center">Action</th>
         </tr>
@@ -33,8 +33,7 @@
             <td innerHTML="{{package.description}}"></td>
             <td>&#8377; {{package.amount}}</td>
             <td>
-                N/A
-                <!-- <span class="deleted-price">&#8377; 300</span> &#8377; 250 -->
+                {{package.ticketCount}}
             </td>
             <td class="text-center">
                 <span class="badge badge-success">Active</span>

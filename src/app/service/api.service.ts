@@ -272,4 +272,17 @@ export class ApiService {
     return this._http.get<any>(_apiUrl + 'transaction/get-all-transaction');
   }
 
+  //forgot password
+  forgotPasswordReqSend(formData : any) {
+    return this._http.post<any>(_apiUrl+'user/forgot-password', formData);
+  }
+  setNewPassword(formData : any) {
+    return this._http.post<any>(_apiUrl+'user/set-new-password', formData);
+  }
+
+  //change password
+  changePassword(formData : any) {
+    return this._http.post<any>(_apiUrl+'user/change-password', formData);
+  }
+
 }
