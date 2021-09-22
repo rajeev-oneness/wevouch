@@ -22,7 +22,7 @@ export class TicketListComponent implements OnInit {
     this._loader.startLoader('loader');
     this._api.ticketList().subscribe(
       res => {
-        this.tickets = res;
+        this.tickets = res.reverse();
         console.log(this.tickets);
         this._loader.stopLoader('loader');
         $(document).ready(function() {
