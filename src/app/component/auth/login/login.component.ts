@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
     this._loader.startLoader('loader');
   }
   public errorMessage = '';
+  public forgetPass: boolean = false;
   ngOnInit(): void {
     if(this._api.isAuthenticated()){
       this._router.navigate(['/admin/dashboard']);
@@ -46,6 +47,38 @@ export class LoginComponent implements OnInit {
       this.errorMessage = 'Please fill out all the details';
     }
     // console.log('Form Data SUbmitted');
+  }
+
+  forgotPassword() {
+    this.errorMessage = '';
+    this.forgetPass = !this.forgetPass;
+  }
+
+  forgetPasswordSubmit(formData: any) {
+    this.errorMessage = '';
+    for( let i in formData.controls ){
+      formData.controls[i].markAsTouched();
+    }
+    if( formData?.valid ){
+      console.log(formData.form.value);
+      const mainForm = formData.form.value;
+      this._loader.startLoader('loader');
+      this._api.forgetPassword(mainForm).subscribe(
+        res => {
+          this.errorMessage = res.message;
+          // console.log(res.user);
+          this._api.storeUserLocally(res.user);
+          this._loader.stopLoader('loader');
+        },
+        err => {
+          this.errorMessage = "something went wrong please check credentials and try after sometimes";
+          this._loader.stopLoader('loader');
+        }
+        
+      )
+    }else{
+      this.errorMessage = 'Please fill out all the details';
+    }
   }
 
 }

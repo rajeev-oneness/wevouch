@@ -32,6 +32,7 @@ export class ApiService {
     localStorage.setItem('accessToken', 'accessToken1234567890adminWeVouch');
     localStorage.setItem('userInfo',JSON.stringify(data.data));
     window.location.href = environment.dasboardPath;
+    // location.reload();
     // this._router.navigate([(routeIntended) ? routeIntended : '/admin/dashboard']);
   }
 
@@ -44,6 +45,7 @@ export class ApiService {
   logoutUser():void{
     localStorage.clear();
     window.location.href = environment.projectPath;
+    // location.reload();
   }
 
   // Checking the Authentication for User
@@ -58,6 +60,7 @@ export class ApiService {
 
   adminLoginApi(formData){
     return this._http.post<any>(_apiUrl+'user/admin-login',formData);
+    // return this._http.post<any>('https://boiling-dawn-74925.herokuapp.com/api/user/admin-login',formData);
   }
 
   dashboardData(){
@@ -283,6 +286,10 @@ export class ApiService {
   //change password
   changePassword(formData : any) {
     return this._http.post<any>(_apiUrl+'user/change-password', formData);
+    // return this._http.post<any>('https://boiling-dawn-74925.herokuapp.com/api/user/change-password', formData);
+  }
+  forgetPassword(formData : any) {
+    return this._http.post<any>(_apiUrl+'user/forgot-password', formData);
   }
 
 }
