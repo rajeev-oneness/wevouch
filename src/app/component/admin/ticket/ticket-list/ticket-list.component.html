@@ -41,7 +41,7 @@
                 <tr *ngFor="let ticket of tickets; let i = index">
                     <td>{{i+1}}</td>
                     <td>{{ticket.uniqueId}}</td>
-                    <td>{{ticket.users.name}}</td>
+                    <td>{{ticket.users?.name}}</td>
                     <td><img src="{{(ticket.products && ticket.products.productImagesUrl) || ''}}" alt="Product Img"></td>
                     <td>
                         <span *ngIf="ticket.brand != ''; else brandNotFound">{{ticket.brand}}</span>
