@@ -42,7 +42,7 @@
                     <td>{{i+1}}</td>
                     <td>{{ticket.uniqueId}}</td>
                     <td>{{ticket.users?.name}}</td>
-                    <td><img src="{{(ticket.products && ticket.products.productImagesUrl) || ''}}" alt="Product Img"></td>
+                    <td><img src="{{(ticket.products && ticket.products.productImagesUrl[0]) || ''}}" alt="Product Img"></td>
                     <td>
                         <span *ngIf="ticket.brand != ''; else brandNotFound">{{ticket.brand}}</span>
                         <ng-template #brandNotFound>N/A</ng-template>

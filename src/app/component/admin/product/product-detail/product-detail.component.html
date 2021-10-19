@@ -69,13 +69,8 @@
             </div>
         </div>
     </div>
-    <!-- <h5 class="text-blue">Product Image</h5>
-    <ul class="product-details-images">
-        <li><img src="./assets/img/product1.png" alt=""></li>
-        <li><img src="./assets/img/product2.png" alt=""></li>
-        <li><img src="./assets/img/product3.png" alt=""></li>
-        <li><img src="./assets/img/product1.png" alt=""></li>
-        <li><img src="./assets/img/product2.png" alt=""></li>
-        <li><img src="./assets/img/product3.png" alt=""></li>
-    </ul> -->
+    <h5 class="text-blue">Product Image</h5>
+    <ul class="product-details-images" >
+        <li *ngFor="let productImg of productDetail?.productImagesUrl"><img src="{{(productImg != '')? productImg : './assets/img/blank-ticket.png'}}" alt=""></li>
+    </ul>
     </div>

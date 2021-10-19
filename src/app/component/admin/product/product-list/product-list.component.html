@@ -43,7 +43,7 @@
             <td>{{product.users?.name}} ,{{product.registeredMobileNo}}</td>
             <td>{{product?.brands}}</td>
             <td>{{product?.category}}</td>
-            <td>{{product.createdAt | date}}</td>
+            <td>{{product.createdAt | date: 'MMM d, y, h:mm:ss a'}}</td>
             <td class="text-center">
                 <span *ngIf="product.status=='active'; else inactive">
                     <span class="badge badge-success" (click)="toggleStatus(product._id, {'status' : 'inactive'})">{{product.status}}</span>
