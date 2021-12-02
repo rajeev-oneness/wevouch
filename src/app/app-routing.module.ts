@@ -48,6 +48,7 @@ import { SettingComponent } from './component/admin/setting/setting.component';
 import { TransactionLogComponent } from './component/admin/report/transaction-log/transaction-log.component';
 import { SubscriptionListComponent } from './component/admin/report/subscription-list/subscription-list.component';
 import { ProfileComponent } from "./component/admin/profile/profile.component";
+import { VersionComponent } from "./component/admin/version/version.component";
 
 const routes: Routes = [
   {path : '', component : DashboardComponent, pathMatch:'full', canActivate:[AuthGuardService],},
@@ -131,6 +132,7 @@ const routes: Routes = [
     {path : 'setting',children : [
       {path : '' , component : SettingComponent},
     ]},
+    {path : 'version', component : VersionComponent},
     {path : 'transaction/logs', component: TransactionLogComponent},
     {path : 'subscription/list', component : SubscriptionListComponent},
   ]},

@@ -4,11 +4,11 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-setting',
-  templateUrl: './setting.component.html',
-  styleUrls: ['./setting.component.css']
+  selector: 'app-version',
+  templateUrl: './version.component.html',
+  styleUrls: ['./version.component.css']
 })
-export class SettingComponent implements OnInit {
+export class VersionComponent implements OnInit {
 
   constructor(private _api:ApiService,private _loader:NgxUiLoaderService,private _router:Router) { }
 
@@ -17,17 +17,9 @@ export class SettingComponent implements OnInit {
     this.fetData();
   }
 
-  public data = {
-    companyName : '',
-    companyAddress : '',
-    emailId : '',
-    mobileNo : '',
-    whatsappNo : '',
-    _id : '',
-    compnyAddress : '',
-  }
+  public data : any = {}
 
-  settingSubmit(formData){
+  versionSubmit(formData){
     this.errorMessage = '';
     for( let i in formData.controls ){
       formData.controls[i].markAsTouched();
@@ -35,7 +27,7 @@ export class SettingComponent implements OnInit {
     if( formData?.valid ){
       const mainForm = formData.form.value;
       this._loader.startLoader('loader');
-      this._api.submitSettingData(this.data._id,mainForm).subscribe(
+      this._api.updateVersion(this.data._id, mainForm).subscribe(
         res => {
           this._loader.stopLoader('loader');
           // this._router.navigate(['/admin/customer/list']);
@@ -53,13 +45,11 @@ export class SettingComponent implements OnInit {
 
   fetData(){
     this._loader.startLoader('loader');
-    this._api.fetchSettingApi().subscribe(
+    this._api.fetchVersion().subscribe(
       res => {
-        this.data = res[0];
+        this.data = res.data[0];
         console.log(res);
-      },err => {
-
-      }
+      },err => {}
     )
     this._loader.stopLoader('loader');
 

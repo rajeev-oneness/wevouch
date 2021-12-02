@@ -271,6 +271,17 @@ export class ApiService {
     return this._http.patch<any>(_apiUrl + 'settings/update/'+settingId,formData);
   }
 
+  //version control
+  fetchVersion(){
+    return this._http.get<any>(_apiUrl + 'version/list');
+  }
+
+  updateVersion(versionId,formData){
+    return this._http.patch<any>(_apiUrl + 'version/update/'+versionId,formData);
+  }
+
+
+// transaction
   getAllTransactionLog(){
     return this._http.get<any>(_apiUrl + 'transaction/get-all-transaction');
   }

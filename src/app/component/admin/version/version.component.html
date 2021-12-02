@@ -1,0 +1,29 @@
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
+<div class="dashboard-body-content">
+    <h5>Version</h5>
+    <hr>
+    <form class="addcustomer-form" #versionForm="ngForm" (ngSubmit)="versionSubmit(versionForm)">
+        <!-- {{settingFormData.value | json}} -->
+        <h5 class="text-blue">App version</h5>
+        <div class="row m-0 pt-3">
+            <div class="col-lg-6">
+                <!-- <input type="hidden" name="_id" #id [(ngModel)]="data._id" required> -->
+                <div class="form-group">
+                    <label for="name">Version Name</label>
+                    <input type="text" #name [(ngModel)]="data.name" name="name" id="name" placeholder="Version Name" class="form-control" required>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="email">Version Code</label>
+                    <input type="text" #code [(ngModel)]="data.code" name="code" id="email" placeholder="Version Code" class="form-control" required>
+                </div>
+            </div>
+        </div>
+        <span class="text-danger">{{errorMessage}}</span>
+        <div class="mt-3 mb-3 button-container d-flex justify-content-end">
+            <button class="actionbutton" type="reset">Cancel</button>
+            <button class="actionbutton" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
