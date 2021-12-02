@@ -32,7 +32,7 @@ export class ApiService {
     localStorage.setItem('accessToken', 'accessToken1234567890adminWeVouch');
     localStorage.setItem('userInfo',JSON.stringify(data.data));
     window.location.href = environment.dasboardPath;
-    // location.reload();
+    location.reload();
     // this._router.navigate([(routeIntended) ? routeIntended : '/admin/dashboard']);
   }
 
