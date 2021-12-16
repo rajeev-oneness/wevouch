@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   constructor(private _api:ApiService,private _loader : NgxUiLoaderService,private _router:Router) {
+    localStorage.clear();
     this._loader.startLoader('loader');
   }
   public errorMessage = '';

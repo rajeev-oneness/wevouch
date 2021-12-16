@@ -59,35 +59,35 @@ const routes: Routes = [
     {path: 'change', component: ChangeComponent},
   ]},
   {path: 'admin', canActivate:[AuthGuardService],children: [
-    {path : 'dashboard', component : DashboardComponent},
-    {path : 'profile', component : ProfileComponent},
+    {path : 'dashboard', canActivate:[AuthGuardService], component : DashboardComponent},
+    {path : 'profile', canActivate:[AuthGuardService], component : ProfileComponent},
     {path : 'customer', children: [
-      {path: 'list', component: CustomerListComponent},
-      {path: 'add', component: CustomerAddComponent},
-      {path: 'edit/:customerId', component: CustomerEditComponent},
-      {path: 'detail/:customerId', component: CustomerDetailComponent},
-      {path: 'report', children: [
+      {path: 'list', canActivate:[AuthGuardService], component: CustomerListComponent},
+      {path: 'add', canActivate:[AuthGuardService], component: CustomerAddComponent},
+      {path: 'edit/:customerId', canActivate:[AuthGuardService], component: CustomerEditComponent},
+      {path: 'detail/:customerId', canActivate:[AuthGuardService], component: CustomerDetailComponent},
+      {path: 'report', canActivate:[AuthGuardService], children: [
         {path: 'list', component: CustomerReportListComponent},
         {path: 'detail/:customerId', component: CustomerReportDeatilComponent},
       ]}
     ]},
     {path: 'ticket', children: [
-      {path: 'list', component: TicketListComponent},
-      {path: 'detail/:ticketId', component: TicketDetailComponent},
+      {path: 'list', canActivate:[AuthGuardService], component: TicketListComponent},
+      {path: 'detail/:ticketId', canActivate:[AuthGuardService], component: TicketDetailComponent},
       {path: 'report', children: [
         {path: 'list', component: TicketReportListComponent},
         {path: 'detail/:ticketId', component: TicketReportDetailComponent},
       ]}
     ]},
     {path: 'product', children: [
-      {path: 'list', component: ProductListComponent},
-      {path: 'detail/:productId', component: ProductDetailComponent},
+      {path: 'list', canActivate:[AuthGuardService], component: ProductListComponent},
+      {path: 'detail/:productId', canActivate:[AuthGuardService], component: ProductDetailComponent},
       {path: 'report', children: [
         {path: 'list', component: ProductReportListComponent},
         {path: 'detail/:productId', component: ProductReportDetailComponent},
       ]}
     ]},
-    {path: 'master', children: [
+    {path: 'master', canActivate:[AuthGuardService], children: [
       {path: 'category', children: [
         {path: 'list', component: CategoryListComponent},
         {path: 'add', component: CategoryAddComponent},
@@ -115,26 +115,26 @@ const routes: Routes = [
       ]}
     ]},
     {path: 'package', children: [
-      {path: 'list', component: PackageListComponent},
-      {path: 'add', component: PackageAddComponent},
-      {path: 'edit/:packageId', component: PackageEditComponent},
+      {path: 'list', canActivate:[AuthGuardService], component: PackageListComponent},
+      {path: 'add', canActivate:[AuthGuardService], component: PackageAddComponent},
+      {path: 'edit/:packageId', canActivate:[AuthGuardService], component: PackageEditComponent},
     ]},
     {path: 'support-executive', children: [
-      {path: 'list', component: SupportListComponent},
-      {path: 'add', component: SupportAddComponent},
-      {path: 'edit/:supportId', component: SupportEditComponent}
+      {path: 'list', canActivate:[AuthGuardService], component: SupportListComponent},
+      {path: 'add', canActivate:[AuthGuardService], component: SupportAddComponent},
+      {path: 'edit/:supportId', canActivate:[AuthGuardService], component: SupportEditComponent}
     ]},
-    {path: 'notification', children: [
+    {path: 'notification', canActivate:[AuthGuardService], children: [
       {path: 'send-notification', component: SendNotificationComponent},
       {path: 'send-email', component: SendEmailComponent},
       {path: 'send-sms', component: SendSmsComponent},
     ]},
-    {path : 'setting',children : [
+    {path : 'setting', canActivate:[AuthGuardService],children : [
       {path : '' , component : SettingComponent},
     ]},
-    {path : 'version', component : VersionComponent},
-    {path : 'transaction/logs', component: TransactionLogComponent},
-    {path : 'subscription/list', component : SubscriptionListComponent},
+    {path : 'version', canActivate:[AuthGuardService], component : VersionComponent},
+    {path : 'transaction/logs', canActivate:[AuthGuardService], component: TransactionLogComponent},
+    {path : 'subscription/list', canActivate:[AuthGuardService], component : SubscriptionListComponent},
   ]},
   {path : '**', component : DashboardComponent, pathMatch:'full', canActivate:[AuthGuardService],},
 ];

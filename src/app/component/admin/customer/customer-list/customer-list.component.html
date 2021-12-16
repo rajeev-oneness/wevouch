@@ -26,6 +26,7 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Mobile</th>
+                    <th>Created At</th>
                     <th style="width:100px" class="text-center">Status</th>
                     <th style="width:100px">Action</th>
                 </tr>
@@ -33,10 +34,11 @@
             <tbody>
                 <tr *ngFor="let customer of customerList; let i = index">
                     <td>{{i+1}}</td>
-                    <td>{{customer.uniqueId}}</td>
-                    <td>{{customer.name}}</td>
-                    <td>{{customer.email}}</td>
-                    <td>{{customer.mobile}}</td>
+                    <td>{{customer?.uniqueId}}</td>
+                    <td>{{customer?.name}}</td>
+                    <td>{{customer?.email}}</td>
+                    <td>{{customer?.mobile}}</td>
+                    <td>{{customer?.createdAt | date: 'MMM d, y'}}</td>
                     <td class="text-center"><span class="badge badge-success">Active</span></td>
                     <td>
                         <a routerLink="/admin/customer/detail/{{customer._id}}"><i class="far fa-eye"></i></a>
