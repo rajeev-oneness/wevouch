@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/service/api.service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { Router } from '@angular/router';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-setting',
@@ -17,17 +18,9 @@ export class SettingComponent implements OnInit {
     this.fetData();
   }
 
-  public data = {
-    companyName : '',
-    companyAddress : '',
-    emailId : '',
-    mobileNo : '',
-    whatsappNo : '',
-    _id : '',
-    compnyAddress : '',
-  }
+  public data:any = {};
 
-  settingSubmit(formData){
+  settingSubmit(formData: any){
     this.errorMessage = '';
     for( let i in formData.controls ){
       formData.controls[i].markAsTouched();
@@ -35,13 +28,23 @@ export class SettingComponent implements OnInit {
     if( formData?.valid ){
       const mainForm = formData.form.value;
       this._loader.startLoader('loader');
-      this._api.submitSettingData(this.data._id,mainForm).subscribe(
+      this._api.submitSettingData('this.data._id',mainForm).subscribe(
         res => {
+          Swal.fire(
+            'Updated!',
+            'Settings has been updated.',
+            'success'
+          )
           this._loader.stopLoader('loader');
           // this._router.navigate(['/admin/customer/list']);
         },
         err => {
-          this.errorMessage = err.message;
+          Swal.fire(
+            'Failed!',
+            'Settings has not been updated.',
+            'error'
+          )
+          this.errorMessage = "Something went wrong";
           this._loader.stopLoader('loader');
         }
         

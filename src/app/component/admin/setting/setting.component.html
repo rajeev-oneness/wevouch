@@ -3,20 +3,20 @@
     <h5>Setting</h5>
     <hr>
     <form class="addcustomer-form" #settingFormData="ngForm" (ngSubmit)="settingSubmit(settingFormData)">
-        <!-- {{settingFormData.value | json}} -->
+        <!-- {{settingFormDatavalue | json}} -->
         <h5 class="text-blue">Basic Information</h5>
         <div class="row m-0 pt-3">
             <div class="col-lg-6">
-                <!-- <input type="hidden" name="_id" #id [(ngModel)]="data._id" required> -->
+                <!-- <input type="hidden" name="_id" #id [ngModel]="data_id" required> -->
                 <div class="form-group">
                     <label for="name">Company Name</label>
-                    <input type="text" #companyName [(ngModel)]="data.companyName" name="companyName" id="name" placeholder="Company Name" class="form-control" required>
+                    <input type="text" #companyName="ngModel" ngModel name="companyName" id="name" placeholder="Company Name" class="form-control" required>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="text"  #emailId [(ngModel)]="data.emailId" name="emailId" id="email" placeholder="Enter your email address" class="form-control" required>
+                    <input type="text"  #emailId="ngModel" ngModel name="emailId" id="email" placeholder="Enter your email address" class="form-control" required>
                 </div>
             </div>
         </div>
@@ -24,14 +24,14 @@
             <div class="col-lg-6">
                 <div class="form-group">
                     <label for="number">Phone number</label>
-                    <input type="number" #mobileNo [(ngModel)]="data.mobileNo" name="mobileNo" id="number" placeholder="Enter your phone number" class="form-control" required>
+                    <input type="number" #mobileNo="ngModel" ngModel name="mobileNo" id="number" placeholder="Enter your phone number" class="form-control" required>
                     </div>
             </div>
 
             <div class="col-lg-6">
                 <div class="form-group">
                     <label for="number">Whatsapp number</label>
-                    <input type="number" #whatsappNo [(ngModel)]="data.whatsappNo" name="whatsappNo" id="number" placeholder="Enter your whatsapp number" class="form-control" required>
+                    <input type="number" #whatsappNo="ngModel" ngModel name="whatsappNo" id="number" placeholder="Enter your whatsapp number" class="form-control" required>
                     </div>
             </div>
         </div>
@@ -41,7 +41,7 @@
             <div class="col-lg-6">
                 <div class="form-group edit-box">
                     <label for="address">Address</label>
-                    <textarea #companyAddress [(ngModel)]="data.companyAddress" class="form-control" name="companyAddress" id="address" required></textarea>
+                    <textarea #companyAddress="ngModel" ngModel class="form-control" name="companyAddress" id="address" required></textarea>
                 </div>
             </div>
         </div>

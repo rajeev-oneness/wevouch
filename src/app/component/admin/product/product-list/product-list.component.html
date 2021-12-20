@@ -1,65 +1,55 @@
 <ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
-<div class="dashboard-body-content pt-0">
-    <div class="card-header card-head pl-0 pr-0">
-        <h5 class="card-head-title">Products</h5>
-        <!-- <div>
-            <div class="input-group ">
-                <div class="pr-3">
-                    <select class="form-control">
-                        <option>10 / page</option>
-                        <option>20 / page</option>
-                        <option>30 / page</option>
-                        <option>40 / page</option>
-                        <option>50 / page</option>
-                    </select>
-                </div>
-                <input type="search" class="form-control" placeholder="Search..."
-                    aria-label="Recipient's username" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary searchbtn" type="button"
-                        id="button-addon2"><i class="fas fa-search"></i></button>
-                </div>
-            </div>
-        </div> -->
+<div class="dashboard-body-content">
+    <div class="d-flex">
+        <div>
+            <h5 class="card-head-title">Products</h5>
+        </div>
+        <div class="ml-auto my-auto">
+            <a class="ml-1 actionbutton btn btn-sm" (click)="reload()">REFRESH</a>
+            <a href="javascript:void(0);" class="ml-1 actionbutton btn btn-sm" (click)="deleteMultiple()" *ngIf="selectedRowIds.size > 0">DELETE PRODUCT</a>
+        </div>
     </div>
-<div class="table-responsive edit-table">
-<table class="table table-sm table-hover brand-table">
-    <thead>
-        <tr>
-            <th>Serial No</th>
-            <th>Product Id</th>
-            <th>Customer Details</th>
-            <th>Brand</th>
-            <th>Category</th>
-            <th>Created At</th>
-            <th style="width:100px" class="text-center">Status</th>
-            <th style="width:80px" class="text-center">Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let product of productList; let i = index">
-            <td>{{i+1}}</td>
-            <td>{{ product.uniqueId}}</td>
-            <td>{{product.users?.name}} ,{{product.registeredMobileNo}}</td>
-            <td>{{product?.brands}}</td>
-            <td>{{product?.category}}</td>
-            <td>{{product.createdAt | date: 'MMM d, y, h:mm:ss a'}}</td>
-            <td class="text-center">
-                <span *ngIf="product.status=='active'; else inactive">
-                    <span class="badge badge-success" (click)="toggleStatus(product._id, {'status' : 'inactive'})">{{product.status}}</span>
-                </span>
-                <ng-template #inactive>
-                    <span class="badge badge-danger" (click)="toggleStatus(product._id, {'status' : 'active'})">{{product.status}}</span>
-                </ng-template>
-            </td>
-            <td class="text-center">
-                <a routerLink="/admin/product/detail/{{ product._id }}"><i class="far fa-eye"></i></a>
-                <a href="javascript:void(0);" class="ml-2" (click)="deleteProduct(product._id)"><i class="far fa-trash-alt text-danger"></i></a>
-            </td>
-        </tr>
-    </tbody>
-</table>
-</div>
+    <hr>
+    <div class="table-responsive edit-table">
+        <table class="table table-sm table-hover brand-table">
+            <thead>
+                <tr>
+                    <th> <input type="checkbox" [checked]="productList.length == selectedRowIds.size" name="chk" id="chk" (click)="selectMultiple()" style="cursor: pointer;"> </th>
+                    <th>Serial No</th>
+                    <th>Product Id</th>
+                    <th>Customer Details</th>
+                    <th>Brand</th>
+                    <th>Category</th>
+                    <th>Created At</th>
+                    <th style="width:100px" class="text-center">Status</th>
+                    <th style="width:80px" class="text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of productList; let i = index" [class.selectedRow]="rowIsSelected(product._id)">
+                    <td><input type="checkbox" [checked]="rowIsSelected(product._id)" name="chk{{i}}" [id]="product._id" (click)="onRowClick(product._id)" style="cursor: pointer;"></td>
+                    <td>{{i+1}}</td>
+                    <td>{{ product.uniqueId}}</td>
+                    <td>{{product.users?.name}} ,{{product.registeredMobileNo}}</td>
+                    <td>{{product?.brands}}</td>
+                    <td>{{product?.category}}</td>
+                    <td>{{product.createdAt | date: 'MMM d, y, h:mm:ss a'}}</td>
+                    <td class="text-center">
+                        <span *ngIf="product.status=='active'; else inactive">
+                            <span class="badge badge-success" (click)="toggleStatus(product._id, {'status' : 'inactive'})">{{product.status}}</span>
+                        </span>
+                        <ng-template #inactive>
+                            <span class="badge badge-danger" (click)="toggleStatus(product._id, {'status' : 'active'})">{{product.status}}</span>
+                        </ng-template>
+                    </td>
+                    <td class="text-center">
+                        <a routerLink="/admin/product/detail/{{ product._id }}"><i class="far fa-eye"></i></a>
+                        <a href="javascript:void(0);" class="ml-2" (click)="deleteProduct(product._id)"><i class="far fa-trash-alt text-danger"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 <!-- <nav class="pagination-container">
     <ul class="pagination">
         <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-double-left previous-img"></i></a></li>
@@ -70,22 +60,3 @@
     </ul>
 </nav> -->
 </div>
-<div class="delete-modal modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel"><i class="far fa-trash-alt"></i> Delete Confirmation</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p>Are you sure you want to permanently delete this product?You <b>CAN NOT</b> view this product in your list</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn close-button" data-dismiss="modal">Close</button>
-          <button type="button" class="btn delete-button" >Delete permanently</button>
-        </div>
-      </div>
-    </div>
-  </div>

@@ -58,7 +58,6 @@ import { SettingComponent } from './component/admin/setting/setting.component';
 import { NotForUseComponent } from './component/admin/report/not-for-use/not-for-use.component';
 import { TransactionLogComponent } from './component/admin/report/transaction-log/transaction-log.component';
 import { SubscriptionListComponent } from './component/admin/report/subscription-list/subscription-list.component';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { ProfileComponent } from './component/admin/profile/profile.component';
 import { VersionComponent } from './component/admin/version/version.component';
 
@@ -70,8 +69,7 @@ import { VersionComponent } from './component/admin/version/version.component';
     BrowserModule,AppRoutingModule,
     NgxUiLoaderModule,CommonModule,
     FormsModule,ReactiveFormsModule,
-    HttpClientModule,DataTablesModule,
-    CKEditorModule,
+    HttpClientModule,DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

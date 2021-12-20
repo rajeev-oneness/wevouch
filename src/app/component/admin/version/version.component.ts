@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/service/api.service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { Router } from '@angular/router';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-version',
@@ -29,10 +30,20 @@ export class VersionComponent implements OnInit {
       this._loader.startLoader('loader');
       this._api.updateVersion(this.data._id, mainForm).subscribe(
         res => {
+          Swal.fire(
+            'Updated!',
+            'Version has been updated.',
+            'success'
+          )
           this._loader.stopLoader('loader');
           // this._router.navigate(['/admin/customer/list']);
         },
         err => {
+          Swal.fire(
+            'Failed!',
+            'Version has not been updated.',
+            'error'
+          )
           this.errorMessage = err.message;
           this._loader.stopLoader('loader');
         }

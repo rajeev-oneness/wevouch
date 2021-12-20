@@ -1,31 +1,20 @@
 <ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
-<div class="dashboard-body-content pt-0">
-    <div class="card-header card-head pl-0 pr-0">
-        <h5 class="card-head-title">Tickets</h5>
-        <!-- <div>
-            <div class="input-group ">
-                <div class="pr-3">
-                    <select class="form-control">
-                        <option>10 / page</option>
-                        <option>20 / page</option>
-                        <option>30 / page</option>
-                        <option>40 / page</option>
-                        <option>50 / page</option>
-                    </select>
-                </div>
-                <input type="search" class="form-control" placeholder="Search..."
-                    aria-label="Recipient's username" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary searchbtn" type="button"
-                        id="button-addon2"><i class="fas fa-search"></i></button>
-                </div>
-            </div>
-        </div> -->
+<div class="dashboard-body-content">
+    <div class="d-flex" >
+        <div>
+            <h5 class="card-head-title">Tickets</h5>
+        </div>
+        <div class="ml-auto my-auto">
+            <a class="ml-1 actionbutton btn btn-sm" (click)="reload()">REFRESH</a>
+            <a href="javascript:void(0);" class="ml-1 actionbutton btn btn-sm" (click)="deleteMultiple()" *ngIf="selectedRowIds.size > 0">DELETE TICKET</a>
+        </div>
     </div>
+    <hr>
     <div class="table-responsive ticket-table">
         <table class="table table-sm table-hover brand-table">
             <thead>
                 <tr>
+                    <th> <input type="checkbox" [checked]="tickets.length == selectedRowIds.size" name="chk" id="chk" (click)="selectMultiple()" style="cursor: pointer;"> </th>
                     <th>Serial No</th>
                     <th>Ticket Id</th>
                     <th>Customer Name</th>
@@ -38,11 +27,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let ticket of tickets; let i = index">
+                <tr *ngFor="let ticket of tickets; let i = index" [class.selectedRow]="rowIsSelected(ticket._id)">
+                    <td><input type="checkbox" [checked]="rowIsSelected(ticket._id)" name="chk{{i}}" [id]="ticket._id" (click)="onRowClick(ticket._id)" style="cursor: pointer;"></td>
                     <td>{{i+1}}</td>
                     <td>{{ticket.uniqueId}}</td>
                     <td>{{ticket.users?.name}}</td>
-                    <td><img src="{{(ticket.products && ticket.products.productImagesUrl[0]) || ''}}" alt="Product Img"></td>
+                    <td><img src="{{(ticket.products && ticket.products.productImagesUrl[0]) || './assets/img/blank-ticket.png'}}" alt="Product Img"></td>
                     <td>
                         <span *ngIf="ticket.brand != ''; else brandNotFound">{{ticket.brand}}</span>
                         <ng-template #brandNotFound>N/A</ng-template>

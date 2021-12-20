@@ -1,8 +1,14 @@
 <ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
 <div class="dashboard-body-content">
-    <div class="d-flex justify-content-between align-items-center">
-        <h5>Customer</h5>
-        <a routerLink="/admin/customer/add" class="actionbutton btn btn-sm">ADD CUSTOMER</a>
+    <div class="d-flex">
+        <div>
+            <h5 class="card-head-title">Customer</h5>
+        </div>
+        <div class="ml-auto my-auto">
+            <a routerLink="/admin/customer/add" class="actionbutton btn btn-sm">ADD CUSTOMER</a>
+            <a class="ml-1 actionbutton btn btn-sm" (click)="reload()">REFRESH</a>
+            <a href="javascript:void(0);" class="ml-1 actionbutton btn btn-sm" (click)="deleteMultiple()" *ngIf="selectedRowIds.size > 0">DELETE CUSTOMER</a>
+        </div>
     </div>
     <hr>
     <!-- <div class="row m-0">
@@ -21,6 +27,7 @@
         <table class="table table-sm table-hover">
             <thead>
                 <tr>
+                    <th> <input type="checkbox" [checked]="customerList.length == selectedRowIds.size" name="chk" id="chk" (click)="selectMultiple()" style="cursor: pointer;"> </th>
                     <th>Serial No</th>
                     <th>Customer Id</th>
                     <th>Name</th>
@@ -32,7 +39,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let customer of customerList; let i = index">
+                <tr *ngFor="let customer of customerList; let i = index" [class.selectedRow]="rowIsSelected(customer._id)">
+                    <td><input type="checkbox" [checked]="rowIsSelected(customer._id)" name="chk{{i}}" [id]="customer._id" (click)="onRowClick(customer._id)" style="cursor: pointer;"></td>
                     <td>{{i+1}}</td>
                     <td>{{customer?.uniqueId}}</td>
                     <td>{{customer?.name}}</td>

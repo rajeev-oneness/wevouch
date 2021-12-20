@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/service/api.service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { Router } from '@angular/router';
-import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-package-add',
@@ -10,7 +9,6 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
   styleUrls: ['./package-add.component.css']
 })
 export class PackageAddComponent implements OnInit {
-  public Editor = ClassicEditor;
   constructor(private _api:ApiService,private _loader : NgxUiLoaderService,private _router:Router) {
     this._loader.startLoader('loader');
    }
