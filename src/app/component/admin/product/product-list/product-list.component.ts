@@ -27,7 +27,8 @@ export class ProductListComponent implements OnInit {
   getProductList() {
     this._api.productList().subscribe(
       res => {
-        this.productList = res;
+        this.productList = res.filter( (e: any) => e.users );
+        console.log(this.productList);
         this._loader.stopLoader('loader');
         $(document).ready(function() {
           setTimeout(function(){ $('.table').DataTable(); }, 1500);
