@@ -2,5 +2,5 @@ export const environment = {
   production: true,
   dasboardPath: '/admin/#/admin/dashboard',
   projectPath : '/admin/#/login',
-  apiUrl : 'http://13.58.153.8:5000/api/',
+  apiUrl : 'http://3.136.213.9:5000/api/',
 };
