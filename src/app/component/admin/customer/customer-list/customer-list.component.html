@@ -7,6 +7,7 @@
         <div class="ml-auto my-auto">
             <a routerLink="/admin/customer/add" class="actionbutton btn btn-sm">ADD CUSTOMER</a>
             <a class="ml-1 actionbutton btn btn-sm" (click)="reload()">REFRESH</a>
+            <a href="javascript:void(0);" class="ml-1 actionbutton btn btn-sm" (click)="downloadCsv()">EXPORT DATA</a>
             <a href="javascript:void(0);" class="ml-1 actionbutton btn btn-sm" (click)="deleteMultiple()" *ngIf="selectedRowIds.size > 0">DELETE CUSTOMER</a>
         </div>
     </div>
@@ -34,7 +35,7 @@
                     <th>Email</th>
                     <th>Mobile</th>
                     <th>Created At</th>
-                    <th style="width:100px" class="text-center">Status</th>
+                    <!-- <th style="width:100px" class="text-center">Status</th> -->
                     <th style="width:100px">Action</th>
                 </tr>
             </thead>
@@ -46,8 +47,8 @@
                     <td>{{customer?.name}}</td>
                     <td>{{customer?.email}}</td>
                     <td>{{customer?.mobile}}</td>
-                    <td>{{customer?.createdAt | date: 'MMM d, y'}}</td>
-                    <td class="text-center"><span class="badge badge-success">Active</span></td>
+                    <td>{{customer?.createdAt | date: 'MMM d y - hh:mm a'}}</td>
+                    <!-- <td class="text-center"><span class="badge badge-success">Active</span></td> -->
                     <td>
                         <a routerLink="/admin/customer/detail/{{customer._id}}"><i class="far fa-eye"></i></a>
                         <a routerLink="/admin/customer/edit/{{customer._id}}" class="ml-2"><i class="far fa-edit"></i></a>

@@ -3,6 +3,8 @@ import { ApiService } from "src/app/service/api.service";
 import { NgxUiLoaderService } from "ngx-ui-loader";
 import { Router } from "@angular/router";
 import Swal from "sweetalert2";
+import { csvJSON, htmlToCSV } from 'src/app/service/globalFunction';
+
 @Component({
   selector: 'app-customer-list',
   templateUrl: './customer-list.component.html',
@@ -145,5 +147,16 @@ export class CustomerListComponent implements OnInit {
     this._loader.stopLoader('loader');
   }
 
+  //csv function
+  downloadCsv() {
+    let html : any = document.querySelector("table");
+    html = (<HTMLElement>html).outerHTML;
+    htmlToCSV(html, "customer.csv");
+  }
+
+  readFile(evt:any){
+    let files = evt.srcElement.files
+    csvJSON(files[0]);
+  }
   
 }
