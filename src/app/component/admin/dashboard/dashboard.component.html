@@ -98,6 +98,51 @@
             </div>
         </div>
     </div>
+
+    <div class="row m-0 mt-3 col-12">
+        <div class="card border-0 shadow-sm col-12 p-0">
+            <div class="card-header card-head">
+                <h5 class="card-head-title">Latest Tickets with issues</h5>
+            </div>
+            <div class="table-responsive edit-table card-body pt-0 pb-0">
+                <table class="table table-sm table-hover brand-table">
+                    <thead>
+                        <tr>
+                            <th>Sr No</th>
+                            <th>Ticket Id</th>
+                            <th>Customer Name</th>
+                            <th>Product</th>
+                            <th>Brand</th>
+                            <th>Category</th>
+                            <th>Created At</th>
+                            <th style="width:100px" class="text-center">Status</th>
+                            <th style="width:80px" class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of issues; let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{item.ticket.uniqueId}}</td>
+                            <td>{{item.ticket.users?.name}}</td>
+                            <td><img src="{{(item.ticket.products && item.ticket.products.productImagesUrl[0]) || './assets/img/blank-item.ticket.png'}}" alt="Product Img"></td>
+                            <td>
+                                <span *ngIf="item.ticket.brand != '';else brandNotFound">{{item.ticket.brand}}</span>
+                                <ng-template #brandNotFound>N/A</ng-template>
+                            </td>
+                            <td>{{item.ticket.category}}</td>
+                            <td>{{item.ticket.createdAt | date}}</td>
+                            <td class="text-center"><span class="badge badge-success">{{item.ticket.status}}</span></td>
+                            <td class="text-center">
+                                <a routerLink="/admin/ticket/detail/{{item.ticket._id}}"><i class="far fa-eye"></i></a>
+                                <a href="javascript:void(0);" class="ml-2" (click)="deleteTicket(item.ticket._id)"><i class="far fa-trash-alt text-danger"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
     <div class="row m-0 mt-3 col-12">
         <div class="card border-0 shadow-sm col-12 p-0">
             <div class="card-header card-head">
@@ -122,8 +167,8 @@
                         <tr *ngFor="let ticket of dashboard.latestTickets; let i = index">
                             <td>{{i+1}}</td>
                             <td>{{ticket.uniqueId}}</td>
-                            <td>{{ticket.users?.name}}</td>
-                            <td><img src="{{(ticket.products && ticket.products.productImagesUrl[0]) || ''}}" alt="Product Img"></td>
+                            <td>{{ticket.users?.name || ticket.users?.mobile}}</td>
+                            <td><img src="{{(ticket.products && ticket.products.productImagesUrl[0]) || './assets/img/blank-ticket.png'}}" alt="Product Img"></td>
                             <td>
                                 <span *ngIf="ticket.brand != '';else brandNotFound">{{ticket.brand}}</span>
                                 <ng-template #brandNotFound>N/A</ng-template>

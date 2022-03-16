@@ -19,6 +19,8 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.getpPackageList();
   }
+  public dashboard :any = [];
+  public issues :any = [];
 
   getpPackageList() {
     // this.dashboardData.data = [];
@@ -36,9 +38,22 @@ export class DashboardComponent implements OnInit {
         });
       },err => {} 
     )
+    
+    this._api.ticketIssueList().subscribe(
+      res => {
+        console.log('ticket issue',res);
+        if (res.error === false) {
+          this.issues = res.data;
+        }
+        
+        this._loader.stopLoader('loader');
+        $(document).ready(function() {
+          setTimeout(function(){ $('.table').DataTable(); }, 1500);
+        });
+      },err => {} 
+    )
   }
 
-  public dashboard :any = [];
 
   deleteTicket(ticketId) {
     if (confirm('Are you sure?')) {

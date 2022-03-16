@@ -111,7 +111,9 @@ export class ApiService {
   updateTicketStatus(ticketId, formData) {
     return this._http.patch<any>(_apiUrl+'ticket/update-status/'+ticketId, formData);
   }
-
+  ticketIssueList() {
+    return this._http.get<any>(_apiUrl+'ticket-issue/list-all');
+  }
   //product api
   productList() {
     return this._http.get<any>(_apiUrl+'product/list');
