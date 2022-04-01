@@ -1468,10 +1468,13 @@ td img{
 }
 
 .page-item.active .page-link {
-    z-index: 3;
+	z-index: 3;
     color: #fff;
     background-color: #2E3D56;
     border-color: #2E3D56;
+    width: 30px;
+    height: 30px;
+    margin: 0 8px;
 }
 
 div.dataTables_wrapper div.dataTables_length label {
@@ -1480,8 +1483,15 @@ div.dataTables_wrapper div.dataTables_length label {
 div.dataTables_wrapper div.dataTables_filter label {
     color: #2E3D56;
 }
-
-
+.login_Logo{
+	width: 275px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+.login_Logo img{
+	object-fit: cover;
+	width: 100%;
+}
 /*----------Responsive_CSS---------------*/
 
 
