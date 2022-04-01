@@ -41,3 +41,21 @@ table.dataTable.no-footer {
 .dataTables_wrapper {
     padding: 15px 0;
 }
+table.dataTable thead .sorting_asc {
+    background-image: none !important;
+}
+
+.table-hover tr td a{
+    color: #202C40;
+}
+.table-hover tr td a:hover{
+    color: #00C0C9;
+}
+.form-check-input:checked {
+    background-color: #00C0C9;
+    border-color: #00C0C9;
+}
+
+.sorting_asc, .sorting_desc {
+    background : inherit !important;
+}

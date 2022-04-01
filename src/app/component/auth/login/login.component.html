@@ -1,96 +1,80 @@
 <ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
 <div class="container-fluid login-body">
-    <div class="row justify-content-center">
-        <div class="authfy-container col-xs-12 col-sm-10 col-md-8 col-lg-6 shadow-lg p-0">
-            <div class="row m-0">
-                <div class="col-sm-5 authfy-panel-left">
-                    <div class="brand-col">
-                        <div class="headline text-center">
-                            <div class="brand-logo text-center pt-5">
-                                <img src="./assets/img/WeVouch_Logo.png" class="w-100">
-                            </div>
-                            <!--<p>
-                                Login using social media to get quick access
-                            </p>
-                            <div class="row social-buttons">
-                                <div class="col-xs-4 col-sm-4 col-md-12">
-                                    <a href="#" class="btn btn-sm btn-block btn-facebook">
-                                        <i class="fab fa-facebook-f mr-1"></i> <span class="hidden-xs hidden-sm">Signin with facebook</span>
-                                    </a>
-                                </div>
-                                <div class="col-xs-4 col-sm-4 col-md-12">
-                                    <a href="#" class="btn btn-sm btn-block btn-twitter">
-                                    <i class="fab fa-twitter mr-1"></i> <span class="hidden-xs hidden-sm">Signin with twitter</span>
-                                    </a>
-                                </div>
-                                <div class="col-xs-4 col-sm-4 col-md-12">
-                                    <a href="#" class="btn btn-sm btn-block btn-google">
-                                    <i class="fab fa-google-plus-g mr-1"></i> <span class="hidden-xs hidden-sm">Signin with google</span>
-                                    </a>
-                                </div>
-                            </div>-->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-7 authfy-panel-right">
-                    <div class="authfy-login">
-                        <h3>Admin Login
-                            <small class="d-block text-muted">Enter your email address and password to access the account</small>
-                        </h3>
-                        <div *ngIf="!forgetPass">
-                            <form id="login-form" #userLoginForm="ngForm" (ngSubmit)="userLoginSubmit(userLoginForm)">
-                                <!-- {{userLoginForm.value | json}} -->
-                                <div class="form-group">
-                                    <label for="inputEmail">Email address</label>
-                                    <input class="form-control" #email="ngModel" ngModel type="email" autocomplete="email" name="email" id="your_name" placeholder="Your Email" required [ngClass]="{'is-invalid':email?.invalid && email?.touched}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputPassword">
-                                        <span class="d-flex nm-jcb nm-aic">
-                                            Password
-                                            <a class="nm-lu nm-ct" href="javascript:void(0);" (click)="forgotPassword()">Forgot Password?</a>
-                                        </span>
-                                    </label>
-                                    <input class="form-control" tabindex="2" #password="ngModel" ngModel type="password" name="password" id="your_pass" placeholder="Password" required [ngClass]="{'is-invalid':password?.invalid && password?.touched}">
-                                <span class="text-danger">{{errorMessage}}</span>
-                                </div>
-                                <div class="form-group form-check">
-                                    <input type="checkbox" class="form-check-input" id="rememberMe">
-                                    <label class="form-check-label nm-check" for="rememberMe">Remember me</label>
-                                </div>
-                                <div class="text-right">
-                                    <button type="submit" class="btn btn-brand nm-hvr nm-btn-1"> Log In <i class="fas fa-sign-in-alt ml-2"></i></button>
-                                </div>
-                            </form>
-                        </div>
-                        <div *ngIf="forgetPass">
-                            <form id="login-form" #forgetPasswordForm="ngForm" (ngSubmit)="forgetPasswordSubmit(forgetPasswordForm)">
-                                <!-- {{userLoginForm.value | json}} -->
-                                <div class="form-group">
-                                    <label for="inputEmail">Email address</label>
-                                    <input class="form-control" #email="ngModel" ngModel type="email" autocomplete="email" name="email" id="your_name" placeholder="Your Email" required [ngClass]="{'is-invalid':email?.invalid && email?.touched}">
-                                    <span class="text-danger">{{errorMessage}}</span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputPassword">
-                                        <span class="d-flex nm-jcb nm-aic">
-                                            <a class="nm-lu nm-ct" href="javascript:void(0);" (click)="forgotPassword()">Back to login</a>
-                                        </span>
-                                    </label>
-                                </div>
-
-                                <div class="text-right">
-                                    <button type="submit" class="btn btn-brand nm-hvr nm-btn-1"> Forget password <i class="fas fa-sign-in-alt ml-2"></i></button>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="text-center">
-                            <p class="log-text">Don't have an account? <a href="registration.html">Sign Up</a></p>
-                        </div>
+    <div class="row m-0 justify-content-center authfy-container">
+        <!-- <div class="col-sm-5 authfy-panel-left">
+            <div class="brand-col">
+                <div class="headline text-center">
+                    <div class="brand-logo text-center pt-5">
+                        <img src="./assets/img/logo_2.svg">
                     </div>
                 </div>
             </div>
+        </div> -->
+        <div class="col-12 mb-4 text-center">
+            <img src="./assets/img/logo2.svg">
         </div>
+        <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 authfy-panel-right">
+            <div class="authfy-login">
+                <h3>Admin Login
+                    <small class="d-block text-muted">Enter your email address and password to access the account</small>
+                </h3>
+                <div *ngIf="!forgetPass">
+                    <form id="login-form" #userLoginForm="ngForm" (ngSubmit)="userLoginSubmit(userLoginForm)">
+                        <!-- {{userLoginForm.value | json}} -->
+                        <div class="form-group">
+                            <label for="inputEmail">Email address</label>
+                            <input class="form-control" #email="ngModel" ngModel type="email" autocomplete="email" name="email" id="your_name" placeholder="Your Email" required [ngClass]="{'is-invalid':email?.invalid && email?.touched}">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword">
+                                <span class="d-flex nm-jcb nm-aic">
+                                    Password
+                                    <a class="nm-lu nm-ct" href="javascript:void(0);" (click)="forgotPassword()">Forgot Password?</a>
+                                </span>
+                            </label>
+                            <input class="form-control" tabindex="2" #password="ngModel" ngModel type="password" name="password" id="your_pass" placeholder="Password" required [ngClass]="{'is-invalid':password?.invalid && password?.touched}">
+                        <span class="text-danger">{{errorMessage}}</span>
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label nm-check" for="rememberMe">Remember me</label>
+                        </div>
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-brand nm-hvr nm-btn-1"> Log In <i class="fas fa-sign-in-alt ml-2"></i></button>
+                        </div>
+                    </form>
+                </div>
+                <div *ngIf="forgetPass">
+                    <form id="login-form" #forgetPasswordForm="ngForm" (ngSubmit)="forgetPasswordSubmit(forgetPasswordForm)">
+                        <!-- {{userLoginForm.value | json}} -->
+                        <div class="form-group">
+                            <label for="inputEmail">Email address</label>
+                            <input class="form-control" #email="ngModel" ngModel type="email" autocomplete="email" name="email" id="your_name" placeholder="Your Email" required [ngClass]="{'is-invalid':email?.invalid && email?.touched}">
+                            <span class="text-danger">{{errorMessage}}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword">
+                                <span class="d-flex nm-jcb nm-aic">
+                                    <a class="nm-lu nm-ct" href="javascript:void(0);" (click)="forgotPassword()">Back to login</a>
+                                </span>
+                            </label>
+                        </div>
+
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-brand nm-hvr nm-btn-1"> Forget password <i class="fas fa-sign-in-alt ml-2"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 text-center">
+            <p class="log-text">Don't have an account? <a href="registration.html">Sign Up</a></p>
+        </div>
+        <!-- <div class="authfy-container col-xs-12 col-sm-10 col-md-8 col-lg-6 shadow-lg p-0">
+            <div class="row m-0">
+                
+            </div>
+        </div> -->
         <!-- <div class="col-lg-7 form-content">
             <div class="login-box">
                 <div class="image-wrapper logo-wrapper">

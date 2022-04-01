@@ -23,7 +23,7 @@
                     <th>Category</th>
                     <th>Created At</th>
                     <th style="width:100px" class="text-center">Status</th>
-                    <th style="width:80px" class="text-center">Action</th>
+                    <th style="width:100px" class="text-center">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,7 +40,7 @@
                     <td>{{ticket.category}}</td>
                     <td>{{ticket.createdAt | date}}</td>
                     <td class="text-center"><span class="badge badge-success">{{ticket.status}}</span></td>
-                    <td class="text-center">
+                    <td class="text-center" style="width:100px">
                         <a routerLink="/admin/ticket/detail/{{ticket._id}}"><i class="far fa-eye"></i></a>
                         <a href="javascript:void(0);" class="ml-2" (click)="deleteTicket(ticket)"><i class="far fa-trash-alt text-danger"></i></a>
                     </td>
