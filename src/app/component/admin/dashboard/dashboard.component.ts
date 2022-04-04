@@ -30,13 +30,16 @@ export class DashboardComponent implements OnInit {
         console.log(res);
         // this.dashboardData.data = res;
         this.dashboard = res;
-        // console.log(this.dashboardData.data)
+        console.log('DashBoard data', res)
         // this.latestTickets = res.latestTickets;
         this._loader.stopLoader('loader');
         $(document).ready(function() {
           setTimeout(function(){ $('.table').DataTable(); }, 1500);
         });
-      },err => {} 
+      },err => {
+        this._loader.stopLoader('loader');
+
+      } 
     )
     
     this._api.ticketIssueList().subscribe(
@@ -45,8 +48,7 @@ export class DashboardComponent implements OnInit {
         if (res.error === false) {
           this.issues = res.data;
         }
-        
-        this._loader.stopLoader('loader');
+        // this._loader.stopLoader('loader');
         $(document).ready(function() {
           setTimeout(function(){ $('.table').DataTable(); }, 1500);
         });

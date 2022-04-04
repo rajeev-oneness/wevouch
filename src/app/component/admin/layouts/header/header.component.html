@@ -1,6 +1,12 @@
 <div class="row m-0 dashboard-content-header">
-    <div class="col-lg-6 d-flex">
-        <button id="sidebarCollapse" class="menu" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu">
+    <div class="col-8 col-lg-6 d-lg-flex">
+        <!-- <button id="sidebarCollapse" class="menu" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu"> -->
+        
+        <!-- for conditional button change -->
+        <!-- <button id="sidebarCollapse" class="menu" [ngClass]="{'opened': isOpend}"  aria-label="Main Menu" (click)="isOpend = !isOpend"> -->
+
+        <!-- fixed hambarger menu button -->
+        <button id="sidebarCollapse" class="menu">
             <svg width="45" height="45" viewBox="0 0 100 100">
                 <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
                 <path class="line line2" d="M 20,50 H 80" />
@@ -11,13 +17,13 @@
             <i class="fas fa-bars"></i>
         </a> -->
         <ul class="breadcrumb p-0">
-            <li><a routerLink="">Home</a></li>
+            <li class="text-white"><a routerLink="">Home</a></li>
             <li class="text-white"><i class="fa fa-chevron-right"></i></li>
             <li><a routerLink="" class="active">Dashboard</a></li>
 
         </ul>
     </div>
-    <div class="col-lg-6">
+    <div class="col-4 col-lg-6">
         <div class="search-box-container">
             <!-- <div class="form-group search-box top-search-bar"> -->
             <!-- <input type="text" name="search-box"  placeholder="Search" -->

@@ -729,8 +729,9 @@ margin-left: 10px;
 		margin: 0px !important;
 	}
 	.dashboard-content-header{
-		flex-direction: column-reverse;
+		/* flex-direction: column-reverse; */
 		padding: 10px;
+		height: 70px;
 	}
 	.dashboard-content-header .col-lg-6{
 		padding: 0px;
@@ -864,7 +865,7 @@ margin-left: 10px;
 
 @media (max-width: 768px) {
     #sidebar {
-        margin-left: -275px;
+        margin-left: -100%;
     }
     #sidebar.active {
         margin-left: 0;
@@ -884,6 +885,9 @@ margin-left: 10px;
 		display: block;
 		float: none;
 		margin: 10px 0px;
+		position: absolute;
+		top: 0;
+		right: 0;
 	}
 	.notification {
 		display: inline-block;
@@ -1321,7 +1325,8 @@ width: 100%;
 	width: 100%;
 }
 #content.active #sidebarCollapse{
-	right: 0;
+	left: 0;
+    right: auto;
 }
 .ml-2{
 	margin-left: 0px !important;
@@ -1522,8 +1527,8 @@ div.dataTables_wrapper div.dataTables_filter label {
 @media (max-width: 860px) {
 	.breadcrumb {
 		position: absolute;
-		top: -42px;
-		left: 42px;
+		top: 10px;
+		left: 48px;
 	}
 	.gpcVCf{
 		display: block;
@@ -1568,13 +1573,18 @@ div.dataTables_wrapper div.dataTables_filter label {
 		padding-top: 0;
 	}
 	#sidebar {
-		width: 275px;
+		width: 100%;
+		background: rgba(35, 46, 64, 0.55);
 	}
 	#sidebarCollapse {
 		padding: 0px;
-		margin-top: -52px;
+		margin-top: 0;
 		z-index: 9999;
 		position: absolute;
+	}
+	#mCSB_1{
+		width: 275px;
+		background: #232e40;
 	}
 	.dashboard-body-content-upper {
 		width: 100%;
