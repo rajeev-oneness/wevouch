@@ -1,4 +1,4 @@
-<div class="dashboard-menubar" (click)="hideSidebar()" id="sidebar" #sideBar>
+<div class="dashboard-menubar" id="sidebar" #sideBar>
     <div class="image-wrapper logo-wrapper customer-logo">
         <img src="./assets/img/WeVouch_Logo.svg" class="img-fluid logo">
     </div>
@@ -10,7 +10,7 @@
             <li routerLinkActive="active" (click)="hideSidebar()"><a routerLink="/admin/dashboard"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
             <li routerLinkActive="active" (click)="hideSidebar()"><a routerLink="/admin/customer/list"><i class="fa fa-user" aria-hidden="true"></i>Customer</a></li>
             <li routerLinkActive="active" (click)="hideSidebar()"><a routerLink="/admin/ticket/list"><i class="fa fa-ticket" aria-hidden="true"></i>Tickets</a></li>
-            <li routerLinkActive="active"><a routerLink="/admin/product/list"><i class="fa fa-product-hunt" aria-hidden="true"></i>Products</a></li>
+            <li routerLinkActive="active" (click)="hideSidebar()"><a routerLink="/admin/product/list"><i class="fa fa-product-hunt" aria-hidden="true"></i>Products</a></li>
             <li><a href="#electronicsSubmenu1" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle"><i class="fas fa-file"></i>Reports</a>
             <ul class="list-unstyled collapse" id="electronicsSubmenu1">
                 <li routerLinkActive="active" (click)="hideSidebar()">

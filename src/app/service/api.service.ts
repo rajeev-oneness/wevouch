@@ -32,15 +32,15 @@ export class ApiService {
     localStorage.clear();
     localStorage.setItem('accessToken', 'accessToken1234567890adminWeVouch');
     localStorage.setItem('lastLoginTime', JSON.stringify(dateTime));
-    localStorage.setItem('userInfo',JSON.stringify(data.user));
+    localStorage.setItem('WEVOUCH_ADMIN_INFO',JSON.stringify(data.user));
     window.location.href = environment.dasboardPath;
     location.reload();
     // this._router.navigate([(routeIntended) ? routeIntended : '/admin/dashboard']);
   }
 
   updateUserLocally(data){
-    localStorage.removeItem('userInfo');
-    localStorage.setItem('userInfo',JSON.stringify(data.data));
+    localStorage.removeItem('WEVOUCH_ADMIN_INFO');
+    localStorage.setItem('WEVOUCH_ADMIN_INFO',JSON.stringify(data.data));
   }
 
   // Logging Out the Current User
@@ -55,7 +55,7 @@ export class ApiService {
     const start = JSON.parse(localStorage.getItem('lastLoginTime') || '{}');
     const interval = Date.now() - start;
     const loginSession = Math.floor(interval / 1000);
-    if (loginSession <= 7200 && localStorage.getItem('userInfo') && localStorage.getItem('accessToken')) {
+    if (loginSession <= 7200 && localStorage.getItem('WEVOUCH_ADMIN_INFO') && localStorage.getItem('accessToken')) {
       return true;
     } else {
       return false;
@@ -64,7 +64,7 @@ export class ApiService {
   }
 
   getUserDetailsFromStorage(){
-    let user = localStorage.getItem('userInfo');
+    let user = localStorage.getItem('WEVOUCH_ADMIN_INFO');
     return JSON.parse(user);
   }
 
